@@ -10,24 +10,27 @@ const MainCont = styled.section`
   //padding-bottom: 6rem;
   @media(min-width: 768px){
     height: 100%;
-    margin-top: 8rem;
   }  
 `
 const HeroInfoCont = styled.div`
   background-color: transparent;
   min-height: calc(50vh - 4rem);
+  margin-bottom: 6rem;
+  @media(min-width: 768px){
+    margin-bottom: 2rem;
+  }
 `
 const DescriptionCont = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;  
+  align-items: flex-start;  
   height: 100%;
   //padding: 4rem 3rem;
 `
 const Title = styled.h2`
   font-size: 26px;
-  //color: ${props => props.theme.main.primaryColor};
+  color: ${props => props.theme.main.primaryColor};
   @media(min-width: 768px){
     font-size: 36px;
   }    
@@ -46,16 +49,21 @@ const HeroImageContainer = styled.div`
   }
 `
 const HeroImage = styled.img`
-  width: 90%;
-  position: absolute;
-  bottom: -5px;
+  width: 100%;
+  //position: absolute;
+  //bottom: -5px;
 `
 const TitleService = styled(Title)`
-  color: ${props => props.theme.main.primaryColor};
-  padding-top: 4rem;
+  //color: ${props => props.theme.main.primaryColor};
+  color: #fff;
   @media(min-width: 768px){
     font-size: 36px;
   }  
+`
+const ServiceCont = styled.div`
+  color: #fff;
+  background-color:  ${props => props.theme.main.primaryColor};
+  padding: 2rem 4rem;
 `
 const SubTitleService = styled(Description)`
   font-weight: bold;
@@ -87,13 +95,12 @@ export default ()=> {
     <Container>
     <MainCont>
       <HeroInfoCont>
+        <Container>
           <Row>
-            <Col xs={12} md={7} push={{ md: 5 }}>
-              <HeroImageContainer>
-                <HeroImage src="/phone.png" />
-              </HeroImageContainer>
+            <Col xs={12} md={6} push={{ md: 6 }}>
+                <HeroImage src={state.about.banner.image} />
             </Col>                        
-            <Col xs={12} md={5} pull={{ md: 7 }}>
+            <Col xs={12} md={6} pull={{ md: 6 }}>
               <DescriptionCont>
                 <Title>
                   {state.about.banner.title}
@@ -101,25 +108,26 @@ export default ()=> {
                 <Description>
                   {state.about.banner.subTitle}
                 </Description>
-                <Button block primary>
+                <Button primary rounded>
                   {state.about.banner.buttonText}
                 </Button>
               </DescriptionCont>
             </Col>            
           </Row>
+          </Container>
       </HeroInfoCont>
-      <div style={{ margin: "4rem 0" }}>
-        <Row gutterWidth={128}>
-          <Col xs={12} md={5}>
-            <TitleService>Ofrecemos un servicio ajustado a las necesidades de cada cliente</TitleService>
-          </Col>
-          <Col xs={12} md={7}>
-            <CarouselCont>
-              <ServiceCarousel />
-            </CarouselCont>
-          </Col>
-        </Row>
-        </div>
+        <ServiceCont>
+          <Row>
+            <Col xs={12}>
+              <TitleService>Ofrecemos un servicio ajustado a las necesidades de cada cliente</TitleService>
+            </Col>
+            <Col xs={12}>
+              <CarouselCont>
+                <ServiceCarousel />
+              </CarouselCont>
+            </Col>
+          </Row>
+        </ServiceCont>
         <Row>
           <Col xs={12} md={12}>
             <QuoteCarouselCont>

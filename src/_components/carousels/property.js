@@ -80,8 +80,8 @@ export default ()=> {
       <Visible xs>
         <CarouselProvider
           naturalSlideWidth={100}
-          naturalSlideHeight={130}
-          //isIntrinsicHeight={true}
+          //naturalSlideHeight={130}
+          isIntrinsicHeight={true}
           totalSlides={items.length}
           visibleSlides={1}
           orientation="horizontal"

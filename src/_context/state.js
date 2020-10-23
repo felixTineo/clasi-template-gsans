@@ -23,7 +23,7 @@ export default {
     },      
   },
   main:{
-    primaryColor: "#FF605B",
+    primaryColor: "#4181FF",
     secondaryColor: "#ffffff",
     favicon: "",
     logo:{
@@ -35,7 +35,7 @@ export default {
     hero:{
       visible: true,
       title: "Tenemos propiedades esclusivas pensadas para ti.",
-      background: "/hero.jpg",
+      background: "/hero.png",
     },
     properties:{
       visible: true,

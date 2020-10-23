@@ -3,6 +3,7 @@ import Context from '../../_context';
 import styled from 'styled-components';
 import { Visible, Hidden } from 'react-grid-system';
 import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext, Dot } from 'pure-react-carousel';
+import { ArrowLeftOutlined, ArrowRightOutlined } from '@ant-design/icons';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 
 const RevieweCont = styled.div`
@@ -16,7 +17,7 @@ const RevieweCont = styled.div`
   justify-content: flex-start;
   min-height: 300px;
   @media(min-width: 768px){
-    flex-direction: row;
+    //flex-direction: row;
     min-height: 50vh;
     align-items: center;
     justify-content: space-around;
@@ -64,10 +65,40 @@ const StyledDot = styled(Dot)`
     background-color: ${props => props.theme.main.primaryColor};
   }
 `
+const QuoteImg = styled.img`
+
+`
+const StyledBack = styled(ButtonBack)`
+  position: absolute;
+  top: 50%;
+  left: 15%;
+  background: transparent;
+  border: none;
+  color: #979797;
+  font-size: 1.5rem;
+  transition: 250ms ease;
+  &:hover{
+    color: ${props => props.theme.main.primaryColor};
+  }
+`
+const StyledNext = styled(ButtonNext)`
+  position: absolute;
+  top: 50%;
+  right: 15%;
+  background: transparent;
+  border: none;
+  color: #979797;
+  font-size: 1.5rem;
+  transition: 250ms ease;
+  &:hover{
+    color: ${props => props.theme.main.primaryColor};
+  }  
+`
 
 const Review = ({ id, review, author }) => {
   return(
     <RevieweCont>
+      <QuoteImg src="/quote.png" />
       <ReviewInnerCont>
         <ReviewDescription>
           {review}
@@ -105,11 +136,12 @@ export default ()=> {
               ))
             }
           </Slider>
-          <DotsCont>
-            {
-              Array(items.length).fill(0).map((_,i) => <StyledDot /*style={{ backgroundColor: color }} className="carousel-text-dot"*/ key={i} slide={i} />)
-            }         
-          </DotsCont> 
+          <StyledBack>
+            <ArrowLeftOutlined />
+          </StyledBack>
+          <StyledNext>
+            <ArrowRightOutlined />
+          </StyledNext>
         </CarouselProvider>
       </Hidden>
       <Visible xs>
@@ -130,9 +162,11 @@ export default ()=> {
               ))
             }
           </Slider>
+          <DotsCont>
           {
               Array(items.length).fill(0).map((_,i) => <StyledDot /*style={{ backgroundColor: color }} className="carousel-text-dot"*/ key={i} slide={i} />)
           }         
+          </DotsCont>
         </CarouselProvider>
       </Visible>
     </Fragment>

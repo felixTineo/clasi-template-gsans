@@ -15,10 +15,14 @@ const chunkArray = (myArray, chunk) =>{
 };
 
 const ServiceCont = styled.div`
-  padding: 2rem;
+
+  @media(min-width: 768px){
+    padding: 2rem;
+  }
 `
 const ServiceTitle = styled.p`
-  color: ${props => props.theme.main.primaryColor};
+  //color: ${props => props.theme.main.primaryColor};
+  font-weight: bold;
 `
 const ServiceDescription = styled.p`
 
@@ -77,8 +81,8 @@ export default ()=> {
       <Hidden xs>
         <CarouselProvider
           naturalSlideWidth={100}
-          naturalSlideHeight={50}
-          //isIntrinsicHeight={true}
+          //naturalSlideHeight={50}
+          isIntrinsicHeight={true}
           totalSlides={itemsDesk.length}
           visibleSlides={1}
           orientation="horizontal"
@@ -99,10 +103,10 @@ export default ()=> {
             }
           </Slider>
           <ButtonBack className="carousel-back-button carousel-text-back-button">
-            <ArrowLeftOutlined style={{ color, fontSize: 26 }} />
+            <ArrowLeftOutlined style={{ color: "#fff", fontSize: 26 }} />
           </ButtonBack>
           <ButtonNext className="carousel-next-button carousel-text-next-button">
-            <ArrowRightOutlined style={{ color, fontSize: 26 }} />
+            <ArrowRightOutlined style={{ color: "#fff", fontSize: 26 }} />
           </ButtonNext>
         </CarouselProvider>
       </Hidden>

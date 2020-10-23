@@ -4,6 +4,7 @@ import Context from '../../_context';
 import { FormProperty } from '../../_components/forms'
 import { Container } from 'react-grid-system';
 import RateBar from '../../_layout/header/rate-bar';
+import { DownCircleFilled } from '@ant-design/icons';
 
 const VeryMainCont = styled.section`
   background-image: url(${props => props.theme.home.hero.background});
@@ -20,7 +21,7 @@ const MainCont = styled.div`
   align-items: flex-start;
   position: relative;
   @media(min-width: 768px){
-    min-height: calc(100vh - 81px);    
+    min-height: calc(100vh - (81px + 1.4rem));    
   }
 `
 
@@ -29,15 +30,24 @@ const Title = styled.h1`
   max-width: 95%;
   font-size: 32px;
   text-align: left;
+  color: #fff;
   @media(min-width: 768px){
     max-width: 50%;
     font-size: 50px;
   }
 `
-const DownButton = styled.div`
+const RateBarCont = styled.div`
   //text-decoration: none;
   position: absolute;
   bottom: 30px;
+`
+const DownButton = styled.a`
+  text-decoration: none;
+  position: absolute;
+  bottom: -.9rem;
+  color: #000;
+  font-size: 1.8rem;
+  cursor: pointer;
 `
 const SvgCont = styled.svg`
   stroke: #fff;
@@ -54,16 +64,15 @@ export default ()=> {
     <VeryMainCont>
       <Container>
       <MainCont>
-        <Title>
+        <Title className="animate__animated animate__fadeInUp">
           {state.home.hero.title}
         </Title>
-        <FormProperty shadow />
-        <DownButton href="#properties">
+        <FormProperty shadow className="animate__animated animate__fadeInUp animate__delay-1s" />
+        <RateBarCont href="#properties" className="animate__animated animate__fadeInUp animate__delay-2s">
           <RateBar />
-{/*          <SvgCont width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="15" cy="15" r="14.5"/>
-            <path d="M19.2426 14L15 18.2427L10.7574 14" strokeLinecap="round" strokeLinejoin="round"/>
-  </SvgCont>*/}
+        </RateBarCont>
+        <DownButton href="#properties" className="animate__animated animate__pulse animate__delay-3s animate__infinite">
+          <DownCircleFilled />
         </DownButton>
       </MainCont>
       </Container>      

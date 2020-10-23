@@ -15,9 +15,11 @@ const BannerCont = styled.div`
 `
 const Title = styled.p`
   text-align: center;
-  font-size: 28px;
+  font-size: 22px;
+  font-weight: bold;
   margin: 0;
   margin-bottom: 2rem;
+  color: ${props => props.theme.main.primaryColor};
   @media(min-width: 768px){
     text-align: left;
     margin-bottom: 0;
@@ -40,7 +42,7 @@ export default ({ title, image, onClick, buttonText, icon }) => {
           </Title>
         </Col>
         <Col xs={12} md={3}>
-          <Button onClick={onClick} block primary>
+          <Button onClick={onClick} block primary rounded>
             {buttonText}
           </Button>
         </Col>        

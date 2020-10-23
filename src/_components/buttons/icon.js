@@ -13,7 +13,8 @@ export default styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: ${props => props.primary ? props.theme.main.primaryColor : "transparent"};
+  background-color: ${props => props.primary ? props.theme.main.primaryColor : "#fff"};
+  border-left-color: ${props => props.theme.main.primaryColor};
   border-color: ${props => props.primary ? props.theme.main.primaryColor : "#fff"};
   color: #FFFFFF;
   transition: 250ms ease;

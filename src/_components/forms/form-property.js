@@ -2,8 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import { Row, Col } from 'react-grid-system';
 import { Select, Input } from '../inputs';
-import { Button, IconButton } from '../buttons';
+import { Button } from '../buttons';
 import { Visible, Hidden } from 'react-grid-system';
+import { SearchOutlined } from '@ant-design/icons';
 
 const Form = styled.form`
   width: 100%;
@@ -15,15 +16,28 @@ const Form = styled.form`
     padding: 0;
     padding-left: 5px;
     background-color: #fff;
+    overflow: hidden;
     box-shadow: ${props => props.shadow && "0px 0px 1px rgba(0, 0, 0, .12), 0px 0px 2px rgba(0, 0, 0, .12), 0px 4px 4px rgba(0, 0, 0, .12), 0px 8px 8px rgba(0, 0, 0, .12)"};
     margin-bottom:0;
   }  
 `
-
-export default ({ block, shadow })=> {
+const IconButton = styled.button`
+  width: 100%;
+  min-height: 36px;
+  border: none;
+  background: #fff;
+  color: ${props => props.theme.main.primaryColor};
+  border-left: 1px solid ${props => props.theme.main.primaryColor};
+  transition: 250ms ease;
+  &:hover{
+    background-color: rgba(0, 0, 0, .1);
+    filter: saturate(1.7);
+  }
+`
+export default ({ block, shadow, className })=> {
 
   return(
-    <Form onSubmit={(e) => e.preventDefault()} block={block} shadow={shadow}>
+    <Form onSubmit={(e) => e.preventDefault()} block={block} shadow={shadow} className={className}>
       <Row gutterWidth={32} align="center">
         <Col xs={12} md={2}>
           <Select
@@ -51,12 +65,12 @@ export default ({ block, shadow })=> {
         </Col>        
         <Col xs={12} md={2}>
           <Hidden xs>
-            <IconButton primary>
-              <img src="/icons/search.svg" alt="buscar" />
+            <IconButton>
+              <SearchOutlined />
             </IconButton>
           </Hidden>
           <Visible xs>
-            <Button primary block>
+            <Button block>
               <img src="/icons/search.svg" alt="buscar" style={{ marginRight: "1rem" }} />
               Buscar
             </Button>
