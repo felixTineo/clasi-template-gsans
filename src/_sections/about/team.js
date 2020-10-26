@@ -33,6 +33,7 @@ const Avatar = styled.img`
   height: 160px;
   object-fit: cover;
   object-position: cover;
+  border-radius: 50%;
 `
 const Name = styled.p`
   color: ${props => props.theme.main.primaryColor};
@@ -40,7 +41,6 @@ const Name = styled.p`
   font-weight: bold;
 `
 const Description = styled.p`
-  height: 100px;
   overflow: hidden;
   text-align: left;
 `
@@ -78,7 +78,8 @@ export default ()=> {
                   <ContactCont>
                     <ContactInfo>
                       {m.email}
-                      {" "}
+                    </ContactInfo>
+                    <ContactInfo>
                       {m.phone}                      
                     </ContactInfo>
                   </ContactCont>

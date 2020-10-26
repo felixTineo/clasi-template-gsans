@@ -4,22 +4,23 @@ import { Row, Col, Visible } from 'react-grid-system';
 import InteractionButtons from '../interaction-buttons';
 
 const MainCont = styled.div`
-  background-color: #fff;
+  background-color: ${props => props.theme.main.primaryColor};
   min-height: 100%;
   @media(min-width: 768px){
     padding: 2rem 4rem;
   }
 `
 const OperationCode = styled.p`
-  color: ${props => props.theme.main.primaryColor};
+  color: #fff;
   font-weight: bold;
 `
 const Title = styled.h1`
   font-weight: 300;
   font-size: 50px;
+  color: #fff;
 `
 const Price = styled(Title)`
-  color: ${props => props.theme.main.primaryColor};
+  color: #fff;
 `
 const UbicationCont = styled.div`
   display: flex;
@@ -27,19 +28,20 @@ const UbicationCont = styled.div`
   justify-content: flex-start;
   font-weight: bold;
   margin-bottom: 2rem;
+  color: #fff;
   @media(min-width: 768px){
     margin: 0;
   }
 `
 const SvgCont = styled.svg`
-  fill: ${props => props.theme.main.primaryColor};
+  fill: #fff;
 `
 
 
-export default ({ description })=> {
+export default ({ description, className })=> {
 
   return(
-    <MainCont>
+    <MainCont className={className}>
       <Row>
         <Col xs ={12}>
           <OperationCode>
@@ -61,9 +63,6 @@ export default ({ description })=> {
             </span>
           </UbicationCont>
         </Col>
-        <Visible xs>
-          <InteractionButtons />
-        </Visible>
       </Row>
     </MainCont>
   )

@@ -4,21 +4,21 @@ import { Container, Row, Col } from 'react-grid-system';
 import Context from '../../_context';
 
 const MainCont = styled.section`
-    background-image: url(${props => props.theme.about.hero.background});
+    //background-image: url(${props => props.theme.about.hero.background});
+    background-color: ${props => props.theme.main.primaryColor};
     background-size: cover;
     background-repeat: no-repeat;
 `
 const TitleCont = styled.div`
   position: relative;
-  height: calc(100vh - 81px);
+  padding: 12.5vh 0;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 `
 const Title = styled.h1`
   position: relative;
-  //color: #fff;
-  padding: 1rem;
+  color: #fff;
   text-align: left;
   margin: 0;
   width: 100%;
@@ -40,7 +40,7 @@ export default ()=> {
     <MainCont>
       <Container>
         <TitleCont>
-          <Title>
+          <Title className="animate__animated animate__fadeIn">
             Noticias
           </Title>
         </TitleCont>        

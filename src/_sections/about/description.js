@@ -19,8 +19,7 @@ const Image = styled.img`
 `
 
 const Carousel = styled.div`
-  background-color: #F7F7F7;
-  min-height: 99%;
+  min-height: 100%;
   //padding-bottom: 2rem;
   @media(min-width: 768px){
     //padding: 4rem;
@@ -29,6 +28,8 @@ const Carousel = styled.div`
 `
 const CarouselInnerCont = styled.div`
   position: relative;
+  background-color: ${props => props.theme.main.primaryColor};
+  padding: 2rem;
 `
 
 export default ()=> {

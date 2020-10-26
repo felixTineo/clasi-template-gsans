@@ -1,19 +1,23 @@
 import React, { useContext } from 'react';
 import Context from '../../../_context';
 import styled from 'styled-components';
-import { Row, Col } from 'react-grid-system';
-import { Input } from '../../../_components/inputs';
+import { Row, Col, Hidden } from 'react-grid-system';
+import { Input, Textarea } from '../../../_components/inputs';
 import { Button } from '../../../_components/buttons';
+import InteractionButtons from '../interaction-buttons';
 
 const MainCont = styled.div`
   padding: 4rem;
-  //background-color: #dadada;
   border: 1px solid #EBEBEB;
   height: 100%;
+  color: #fff;
 `
 const UserCont = styled.div`
+  background-color: ${props => props.theme.main.primaryColor};
+  padding: 1rem 0;
   margin-top: 2rem;
   display: flex;
+  flex-direction: column;
   align-items: center;
 `
 const Avatar = styled.img`
@@ -39,13 +43,19 @@ const UserInfoCont = styled.ul`
   list-style: none;
   padding: 0;
   margin: 0 1rem;
+  text-align: center;
 `
 const UserInfoItem = styled.li`
   font-weight: bold;
+  margin-top: 1rem;
 `
 const ContactForm = styled.form`
-  margin-top: 3rem;
-  height: 100%;
+  //margin-top: 3rem;
+  //height: 100%;
+  background-color: ${props => props.theme.main.primaryColor};
+  padding: 1rem;
+  padding-bottom: 2rem;
+  color: #fff;
 `
 const ContactFormButtons = styled.div`
   margin-top: 2rem;
@@ -57,17 +67,23 @@ export default ()=> {
 
   return(
     <MainCont>
-      <h2>Contacto</h2>
+      <Hidden xs>
+        <Row>
+          <InteractionButtons />
+        </Row>
+      </Hidden>
       <UserCont>
         <Avatar src={user.avatar} alt={user.lastName} />
         <UserInfoCont>
           <UserInfoItem>
-            {`${user.firstName} ${user.lastName} - ${user.jobTitle}`}
+            {`${user.firstName} ${user.lastName}`}
           </UserInfoItem>
+          <UserInfoCont>
+            {user.jobTitle}
+          </UserInfoCont>
           <UserInfoItem>
             {user.phone}
-          </UserInfoItem>
-          <UserInfoItem>
+            {" / "}
             {user.email}
           </UserInfoItem>
         </UserInfoCont>
@@ -79,7 +95,6 @@ export default ()=> {
           <Col xs={12}>
             <Input
               placeholder="Nombre"
-              gray
               id="name"
               vertical
             />
@@ -87,7 +102,6 @@ export default ()=> {
           <Col xs={12}>
             <Input
               placeholder="Teléfono"
-              gray
               id="phone"
               vertical
             />
@@ -95,14 +109,14 @@ export default ()=> {
           <Col xs={12}>
             <Input
               placeholder="Email"
-              gray
               id="email"
               vertical
             />
           </Col>
           <Col xs={12}>
-            <Input
+            <Textarea
               placeholder="Mensaje"
+              rows={6}
               gray
               id="message"
               vertical
@@ -110,21 +124,21 @@ export default ()=> {
           </Col>   
           <Col xs={12} md={12}>
             <ContactFormButtons>
-              <Button primary block>
+              <Button block>
                 LLamar por teléfono
               </Button>
             </ContactFormButtons>
           </Col>          
           <Col xs={12} md={12}>
             <ContactFormButtons>
-              <Button outlined block>
+              <Button block>
                 LLamar por teléfono
               </Button>
             </ContactFormButtons>
           </Col>
           <Col xs={12} md={12}>
             <ContactFormButtons>
-              <Button outlined block>
+              <Button block>
                 Enviar whatsapp
               </Button>
             </ContactFormButtons>

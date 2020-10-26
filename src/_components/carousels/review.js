@@ -45,10 +45,17 @@ const DotsCont = styled.div`
   display: flex;
   justify-content: center;
 `
-const QuotationCont = styled.div`
-  position: absolute;
-  top: -2rem;
-  left: 4rem;
+const QuotationCont = styled.div` 
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, .12) ,
+              1px 2px 2px rgba(0, 0, 0, .12) ,
+              1px 4px 4px rgba(0, 0, 0, .12) ,
+              1px 8px 8px rgba(0, 0, 0, .12) ;
 `
 
 const StyledDot = styled(Dot)`
@@ -98,7 +105,11 @@ const StyledNext = styled(ButtonNext)`
 const Review = ({ id, review, author }) => {
   return(
     <RevieweCont>
-      <QuoteImg src="/quote.png" />
+      <QuotationCont>
+        <SvgCont width="17" height="12" viewBox="0 0 17 12" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3.70215 12C2.68087 12 1.80143 11.6454 1.06384 10.9362C0.35462 10.1986 0 9.31915 0 8.29787C0 7.78723 0.0851284 7.33333 0.255341 6.93617C0.425554 6.51064 0.695046 6.02837 1.06384 5.48936L4.76596 0L7.2766 1.65958L5.10639 4.97872C5.75887 5.23404 6.29788 5.65957 6.72342 6.25532C7.14895 6.8227 7.36172 7.50355 7.36172 8.29787C7.36172 9.31915 7.00709 10.1986 6.29787 10.9362C5.58865 11.6454 4.72343 12 3.70215 12ZM13.0213 12C12 12 11.1206 11.6454 10.383 10.9362C9.67376 10.1986 9.31917 9.31915 9.31917 8.29787C9.31917 7.78723 9.40427 7.33333 9.57448 6.93617C9.7447 6.51064 10.0142 6.02837 10.383 5.48936L14.0851 0L16.5957 1.65958L14.4255 4.97872C15.078 5.23404 15.617 5.65957 16.0426 6.25532C16.4681 6.8227 16.6809 7.50355 16.6809 8.29787C16.6809 9.31915 16.3263 10.1986 15.617 10.9362C14.9078 11.6454 14.0426 12 13.0213 12Z"/>
+        </SvgCont>
+      </QuotationCont>
       <ReviewInnerCont>
         <ReviewDescription>
           {review}

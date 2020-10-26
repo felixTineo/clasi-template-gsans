@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Row, Col, Hidden } from 'react-grid-system';
+import { Row, Col, Hidden, Visible } from 'react-grid-system';
 import InteractionButtons from '../interaction-buttons';
 import Icons from '../../../_icons';
 
@@ -46,9 +46,9 @@ export default ({ description })=> {
   return(
     <MainCont>
       <Row>
-        <Hidden xs>
+        <Visible xs>
          <InteractionButtons />
-        </Hidden>
+        </Visible>
         <Col xs={12}>
           <PublicObs>
             {description.publicObservation}              

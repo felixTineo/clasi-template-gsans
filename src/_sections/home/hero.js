@@ -5,11 +5,12 @@ import { FormProperty } from '../../_components/forms'
 import { Container } from 'react-grid-system';
 import RateBar from '../../_layout/header/rate-bar';
 import { DownCircleFilled } from '@ant-design/icons';
+import { hexTorgba } from '../../_util';
 
 const VeryMainCont = styled.section`
-  background-image: url(${props => props.theme.home.hero.background});
-  background-position: center;
-  background-size: cover;
+  background-image: ${props => `linear-gradient(${hexTorgba(props.theme.main.primaryColor, .8)},${hexTorgba(props.theme.main.primaryColor, .8)})`}, url(${props => props.theme.home.hero.background});
+  background-position: right bottom;
+  //background-size: cover;
   background-repeat: no-repeat;
   //color: #fff;
 `

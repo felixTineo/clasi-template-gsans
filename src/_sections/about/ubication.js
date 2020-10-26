@@ -12,13 +12,13 @@ const Title = styled.p`
   height: 100%;
   background-color: ${props => props.theme.main.primaryColor};
   color: #fff;
-  padding: 2rem;
+  padding: 3rem;
   //font-weight: bold;
   margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  //font-size: 2rem;
+  font-size: 2rem;
 `
 const Map = styled.img`
   width: 100%;
@@ -33,12 +33,12 @@ export default ({ noContact })=> {
     <Container>
     <MainCont>
       <Row nogutter>
-        <Col xs={12} >
+        <Col xs={12} md={6} >
           <Title>
             {state.title}
           </Title>
         </Col>
-        <Col xs={12} >
+        <Col xs={12} md={6}>
           <Map src="/map.png" />          
         </Col>        
       </Row>

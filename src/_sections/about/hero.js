@@ -4,20 +4,25 @@ import { Container, Row, Col } from 'react-grid-system';
 import Context from '../../_context';
 
 const MainCont = styled.section`
-    background-image: url(${props => props.theme.about.hero.background});
+    //background-image: url(${props => props.theme.about.hero.background});
+    background-color: ${props => props.theme.main.primaryColor};
     background-size: cover;
     background-repeat: no-repeat;
 `
 const TitleCont = styled.div`
   position: relative;
-  height: calc(100vh - 81px);
+  height: 100vh;
   display: flex;
-  justify-content: center;
+  justify-content:center;
   align-items: center;
+  @media(min-width: 768px){
+    justify-content:flex-start;
+    height: 50vh;
+  }
 `
 const Title = styled.h1`
   position: relative;
-  //color: #fff;
+  color: #fff;
   padding: 1rem;
   text-align: left;
   margin: 0;
@@ -25,7 +30,7 @@ const Title = styled.h1`
   font-weight: 300;
   @media(min-width: 576px){
     text-align: left;
-    width: 70vw;
+    width: 50vw;
   }
 `
 const Image = styled.img`
@@ -41,7 +46,7 @@ export default ()=> {
     <MainCont>
       <Container>
         <TitleCont>
-          <Title>
+          <Title className="animate__animated animate__fadeIn">
             {state.hero.title}
           </Title>
         </TitleCont>        

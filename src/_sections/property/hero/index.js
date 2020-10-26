@@ -8,6 +8,7 @@ import Description from './description';
 
 const MainCont = styled.div`
   padding-top: 10rem;
+  background-color: ${props => props.theme.main.primaryColor};
 `
 export default ()=> {
   const state = useContext(Context).singleProperty;
@@ -15,11 +16,11 @@ export default ()=> {
     <MainCont>
       <Container>
         <Row gutterWidth={0}>
-          <Col xs={12} md={6}>
-            <Gallery images={state.images} />
-          </Col>
-          <Col xs={12} md={6}>
+          <Col xs={12} md={6} className="animate__animated animate__fadeInDown">
             <Description description={state} />
+          </Col>          
+          <Col xs={12} md={6} className="animate__animated animate__fadeIn">
+            <Gallery images={state.images} />
           </Col>
         </Row>
       </Container>

@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import Context from '../../_context'
 import styled from 'styled-components';
 import { Container, Row, Col } from 'react-grid-system';
 import { Input, Textarea } from '../../_components/inputs';
@@ -66,9 +67,14 @@ const ButtonContainer = styled.div`
 const Map = styled.img`
   width: 100%;
 `
+const MapTitle = styled.p`
+  color: ${props => props.theme.main.primaryColor};
+  font-size: 1.8rem;
+  margin-top: 4rem;
+`
 
 export default ()=> {
-
+  const state = useContext(Context);
   return(
     <Container>
       <MainCont>
@@ -135,6 +141,11 @@ export default ()=> {
                 </Col>
               </Row>
             </Form >        
+          </Col>
+          <Col xs={12} md={12}>
+            <MapTitle>
+              Visitanos en {" "}{state.office.address}
+            </MapTitle>
           </Col>
           <Col xs={12} md={12}>
             <Map src="/map.png" />

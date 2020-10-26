@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { Container, Row, Col } from 'react-grid-system';
 
 const MainCont = styled.section`
-  padding: 6rem 0;
+  padding: 8rem 0;
   //min-height: 100vh;
 `
 const HistoryCont = styled.div`
@@ -13,7 +13,7 @@ const HistoryCont = styled.div`
   justify-content: center;
   align-items: flex-start;
   height: 70vh;
-  margin: 1rem 0;
+  //margin: 1rem 0;
 `
 const Title = styled.h2`
   color: ${props => props.theme.main.primaryColor};
@@ -33,8 +33,6 @@ const ImageContainer = styled.div`
 `
 const Image = styled.img`
   width: 90%;
-  position: absolute;
-  bottom: -5px;
 `
 
 
@@ -44,7 +42,7 @@ export default ()=> {
     <MainCont>
       <Container>
         <Row>
-          <Col xs={12} md={5}>
+          <Col xs={12} md={6}>
             <HistoryCont>
               <Title>
                 {state.history.title}
@@ -52,10 +50,8 @@ export default ()=> {
               <Description dangerouslySetInnerHTML={{__html: state.history.description}} />
             </HistoryCont>
           </Col>
-          <Col xs={12} md={7}>
-            <ImageContainer>
-              <Image src="/phone.png" alt="historia" />
-            </ImageContainer>
+          <Col xs={12} md={6}>
+            <Image src={state.description.background} alt="historia" />
           </Col>                    
         </Row>
       </Container>

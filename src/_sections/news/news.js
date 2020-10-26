@@ -64,13 +64,17 @@ const SvgCont = styled.svg`
     fill: ${props => props.theme.main.primaryColor};
   }
 `
+const MainNavCont = styled.div`
+  background-color: ${props => props.theme.main.primaryColor};
+  padding-bottom: 6rem;
+  margin-bottom: 6rem;
+`
 const NavCont = styled.nav`
   display: flex;
   align-items: center;
-  margin: 2rem 0;
 `
 const NavTitle = styled.span`
-  color: #919191;
+  color: #fff;
 `
 const NavList = styled.ul`
   list-style: none;
@@ -79,19 +83,19 @@ const NavList = styled.ul`
   display: flex;
 `
 const NavOption = styled.button`
-  background-color: ${props => props.active ? props.theme.main.primaryColor : "transparent"};
+  background-color: ${props => props.active ? "#fff" : "transparent"};
   transition: 250ms ease;
   //box-shadow: ${props => props.active ? "0px 1px 1px rgba(0, 0, 0, .12), 0px 2px 2px rgba(0, 0, 0, .12), 0px 4px 4px rgba(0, 0, 0, .12), 0px -1px 4px rgba(0, 0, 0, .12), 0px 8px 8px rgba(0, 0, 0, .12)" : "none"};
-  color: ${props => props.active ? "#fff" : "#000"};
+  color: ${props => props.active ? props.theme.main.primaryColor : "#fff"};
   border: none;
   cursor: pointer;
-  width: 58px;
+  padding: 0 .5rem;
   height: 34px;
-  border-radius: 25px;
+  border-radius: 10px;
   @media(min-width: 768px){
     width: 106px;
     height: 34px;
-    border-radius: 25px;    
+    //border-radius: 25px;    
   }
 `
 
@@ -132,30 +136,36 @@ export default ()=> {
 
   return(
     <MainCont>
-    <Container>
-        <Row>
-          <Col xs={12}>
-            <NavCont>
-              <NavTitle>Categorias: </NavTitle>
-              <NavList>
-                <li>
-                  <NavOption onClick={()=> setTag("TODAS")} active={tag === "TODAS"}>
-                    Todas
-                  </NavOption>
-                </li>                
-                <li>
-                  <NavOption onClick={()=> setTag("LEGALES")} active={tag === "LEGALES"}>
-                    Legales
-                  </NavOption>
-                </li>
-                <li>
-                  <NavOption onClick={()=> setTag("NOTICIAS")} active={tag === "NOTICIAS"}>
-                    Noticias
-                  </NavOption>
-                </li>                
-              </NavList>
-            </NavCont>
-          </Col>
+      <MainNavCont>
+        <Container>
+          <Row>
+            <Col xs={12}>
+              <NavCont className="animate__animated animate__fadeIn animate__delay-1s">
+                <NavTitle>Categorias: </NavTitle>
+                <NavList>
+                  <li>
+                    <NavOption onClick={()=> setTag("TODAS")} active={tag === "TODAS"}>
+                      Todas
+                    </NavOption>
+                  </li>                
+                  <li>
+                    <NavOption onClick={()=> setTag("LEGALES")} active={tag === "LEGALES"}>
+                      Legales
+                    </NavOption>
+                  </li>
+                  <li>
+                    <NavOption onClick={()=> setTag("NOTICIAS")} active={tag === "NOTICIAS"}>
+                      Noticias
+                    </NavOption>
+                  </li>                
+                </NavList>
+              </NavCont>
+            </Col>
+            </Row>   
+          </Container>       
+        </MainNavCont>
+        <Container>
+          <Row>
           {
             news.map(n => (
               <Col key={n.id} xs={12} md={4} style={{ margin: "1rem 0" }}>
@@ -193,7 +203,7 @@ export default ()=> {
             </NavPaginate>
           </Col>
         </Row>
-    </Container>
+        </Container>
     </MainCont>
   )
 }
