@@ -3,6 +3,7 @@ import Context from '../../_context';
 import styled from 'styled-components';
 import { Container, Row, Col } from 'react-grid-system';
 import { Button } from '../../_components/buttons';
+import { navigate } from 'gatsby';
 
 const MainCont = styled.div`
   margin: 8rem 0 0;
@@ -41,8 +42,8 @@ export default ()=> {
           </Col>
           <Col xs={12}>
             <ButtonCont>
-              <Button rounded primary>
-                Contactanos
+              <Button rounded primary onClick={()=> navigate("/contact")}>
+                Contáctanos
               </Button>
             </ButtonCont>
           </Col>
