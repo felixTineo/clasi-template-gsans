@@ -41,14 +41,14 @@ const RateBarCont = styled.div`
   //text-decoration: none;
   position: absolute;
   width: 100%;
-  bottom: 0px;
+  bottom: 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   @media(min-width: 768px){
     flex-direction: row;
     align-items: flex-end;
-    bottom: 30px;
+    bottom: 1rem;
   }
 `
 const DownButton = styled.a`
@@ -92,7 +92,6 @@ export default ()=> {
         <FormProperty filter={filter} shadow className="animate__animated animate__fadeInUp animate__delay-1s" />
         <RateBarCont href="#properties" className="animate__animated animate__fadeInUp animate__delay-2s">
           <Hidden xs>
-            <RateBar />
           </Hidden>
           <FitlerButton onClick={()=> setFilter(!filter)}>
             {
@@ -112,9 +111,6 @@ export default ()=> {
             }
           </FitlerButton>
         </RateBarCont>
-        <DownButton href="#properties" className="animate__animated animate__pulse animate__delay-3s animate__infinite">
-          <DownCircleFilled />
-        </DownButton>
       </MainCont>
       </Container>      
     </VeryMainCont>
